@@ -1,4 +1,4 @@
-let openPopupButtons = document.querySelectorAll('.open_button');
+let openPopupButtons = document.querySelectorAll('.bttn1');
 let form = document.querySelector('.forma');
 let popup = document.querySelector('.popup');
 
