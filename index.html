@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <title>WEB 8</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+      integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://code.jquery.com/jquery-3.6.0.slim.js"
+      integrity="sha256-HwWONEZrpuoh951cQD1ov2HUK5zA5DwJ1DNUXaM6FsY="
+      crossorigin="anonymous"
+    ></script>
+    <script src="form.js" defer></script>
+    <link rel="stylesheet" href="style.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+  </head>
+  <body>
+    <div class="bttn">
+    <button class="bttn1">Показать форму</button>
+  </div>
+    <div class="popup">
+      <div class="popup__container">
+        <div class="popup__wrapper">
+          <div id="forma"> 
+            <form class="forms" accept-charset="UTF-8">
+              <label>
+                Имя:
+                <br />
+                <input id="name"
+                  name="names"
+                  placeholder="Ваше Имя"
+                  type="text" required
+                /> </label
+              ><br />
+              <label>
+                Почта:
+                <br />
+                <input id="e-mail"
+                  name="email"
+                  placeholder="Ваш e-mail"
+                  type="email"
+                  required
+                />
+              </label>
+              <br />
+              <label>
+                Ваше сообщение:
+                <br />
+                <textarea id="information"
+                  name="informations"
+                  placeholder="Что вашей душе угодно, излейте здесь всё"
+                  required
+                ></textarea>
+              </label>
+              <br />
+              <label
+                >Я согласен(на) с политикой обработки персональных данных<input id="checkb"
+                  type="checkbox"
+                  name="check-1"
+                  required
+              /></label>
+              <br />
+              <input type="submit" value="Отправить" />
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
