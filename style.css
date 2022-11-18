@@ -1,12 +1,19 @@
 html,body{
-    background-color: #fafafa;
   height: 100%;
 }
 #forma {
-	display: none;
 	animation-duration: 1.5s;
-	animation-fill-mode: both;
-	animation-name: fadeIn;
+	animation-name: Animation;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	background: #3b3f3f;
+	max-width: 600px;
+	width: 100%;
+	padding: 20px;
+	border-radius: 30px;
+	color:#fc8516
   }
   
   #forma.open {
@@ -19,7 +26,7 @@ html,body{
 	height: 100%;
 	top: 0;
 	left: 0;
-	background: rgba(17, 17, 17, 0.5);
+	background: #6d6d6d80;
 	transition: all 0.5s ease;
 	display: none;
   }
@@ -27,22 +34,7 @@ html,body{
   .popup_open {
 	display: block;
   }
-  
-  .popup__container {
-	position: absolute;
-	top: 50%;
-	left: 50%;
-	transform: translate(-50%, -50%);
-	background: #fff;
-	border-radius: 10px;
-	max-width: 588px;
-	width: 100%;
-  }
-  
-  .popup__wrapper {
-	padding: 40px;
-  }
-  @keyframes fadeIn {
+  @keyframes Animation {
 	from {
 	  opacity: 0;
 	}
@@ -61,6 +53,11 @@ html,body{
   }
   .bttn1
   {
-	background-color: #6d6dd1;
-	color:#ffffff;
+	background-color: #3a3732;
+	color:#fc8516;
+  }
+  .sendbtn
+  {
+	width: 100%;
+	background: #fc8516;
   }
