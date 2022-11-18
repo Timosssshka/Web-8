@@ -1,56 +1,54 @@
-let button = document.querySelector('button');
-let form = document.querySelector('#forma');
+let openPopupButtons = document.querySelectorAll('.open_button');
+let form = document.querySelector('.forma');
 let popup = document.querySelector('.popup');
 
 let names = document.getElementById('name');
-let email = document.getElementById('e-mail');
-let massage = document.getElementById('information');
-let checkbx = document.getElementById('checkb');
+let email = document.getElementById('email');
+let sms = document.getElementById('sms');
+let checkbox = document.getElementById('checkbox');
 
 function save() {
   localStorage.setItem('Имя', names.value);
-  localStorage.setItem('Почта', email.value);
-  localStorage.setItem('Сообщение', massage.value);
-  if (checkbx.checked) {
-    localStorage.setItem('Чекбокс', 1);
+  localStorage.setItem('Эл. почта', email.value);
+  localStorage.setItem('Сообщение', sms.value);
+  if (checkbox.checked) {
+    localStorage.setItem('Согласие', 1);
   } else {
-    localStorage.setItem('Чекбокс', 0);
+    localStorage.setItem('Согласие', 0);
   }
 }
+
 document.addEventListener('DOMContentLoaded', () => {
   names.value = localStorage.getItem('Имя');
-  email.value = localStorage.getItem('Почта');
-  massage.value = localStorage.getItem('Сообщение');
-  let checkBox = localStorage.getItem('Чекбокс');
+  email.value = localStorage.getItem('Эл. почта');
+  sms.value = localStorage.getItem('Сообщение');
+  let checkBox = localStorage.getItem('Согласие');
   if (checkBox == 1) {
-    checkbx.checked = true;
+    checkbox.checked = true;
   } else if (checkBox == 0) {
-    checkbx.checked = false;
+    checkbox.checked = false;
   }
-
+  
   names.oninput = save;
   email.oninput = save;
-  massage.oninput = save;
-  checkbx.oninput = save;
-  
-    button.addEventListener('click', (event) => {
-        event.preventDefault();
-      window.onpopstate = function () {
-        window.history.back();
-        form.classList.remove('active');
-        popup.classList.remove('active');
-      };
-      history.pushState({ page: 1 }, '', '?next');
-      form.classList.add('open');
-      popup.classList.add('popup_open');
-    });
-    document.addEventListener('click', (e) => {
-      if (e.target === form) {
-        window.history.back();
-        form.classList.remove('active');
-        popup.classList.remove('active');
-      }
-    });
+  sms.oninput = save;
+  checkbox.oninput = save;
+
+  openPopupButtons.forEach((button) => {
+  button.addEventListener('click', (event) => {
+    event.preventDefault();
+    window.onpopstate = function () {
+      window.history.go(0);
+      form.classList.remove('open');
+      popup.classList.remove('popup_open');
+    };
+    history.pushState({ page: 1 }, '', '?forma');
+    form.classList.add('open');
+    popup.classList.add('popup_open');
+  });
+});
+
+
     $(function(){
       $(".forms").submit(function(e){
           e.preventDefault();
