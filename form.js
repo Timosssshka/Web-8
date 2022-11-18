@@ -3,15 +3,15 @@ let form = document.querySelector('.forma');
 let popup = document.querySelector('.popup');
 
 let names = document.getElementById('name');
-let email = document.getElementById('email');
-let sms = document.getElementById('sms');
-let checkbox = document.getElementById('checkbox');
+let email = document.getElementById('e-mail');
+let massage = document.getElementById('information');
+let checkbx = document.getElementById('checkb');
 
 function save() {
   localStorage.setItem('Имя', names.value);
-  localStorage.setItem('Эл. почта', email.value);
-  localStorage.setItem('Сообщение', sms.value);
-  if (checkbox.checked) {
+  localStorage.setItem('Почта', email.value);
+  localStorage.setItem('Сообщение', massage.value);
+  if (checkbx.checked) {
     localStorage.setItem('Согласие', 1);
   } else {
     localStorage.setItem('Согласие', 0);
@@ -21,18 +21,18 @@ function save() {
 document.addEventListener('DOMContentLoaded', () => {
   names.value = localStorage.getItem('Имя');
   email.value = localStorage.getItem('Эл. почта');
-  sms.value = localStorage.getItem('Сообщение');
+  massage.value = localStorage.getItem('Сообщение');
   let checkBox = localStorage.getItem('Согласие');
   if (checkBox == 1) {
-    checkbox.checked = true;
+    checkbx.checked = true;
   } else if (checkBox == 0) {
-    checkbox.checked = false;
+    checkbx.checked = false;
   }
   
   names.oninput = save;
   email.oninput = save;
-  sms.oninput = save;
-  checkbox.oninput = save;
+  massage.oninput = save;
+  checkbx.oninput = save;
 
   openPopupButtons.forEach((button) => {
   button.addEventListener('click', (event) => {
